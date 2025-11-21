@@ -12,8 +12,10 @@ import lombok.Data;
 @Description("生成多个代码文件的结果")
 @Data
 public class MultiFileCodeResult {
+
     @Description("HTML代码")
     private String htmlCode;
+
     @Description("CSS代码")
     private String cssCode;
 
