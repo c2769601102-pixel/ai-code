@@ -24,8 +24,8 @@ public class MultiFileCodeFileSaverTemplate extends CodeFileSaverTemplate<MultiF
     }
 
     @Override
-    protected CodeGenTypeEnum getCodeTpe() {
-        return CodeGenTypeEnum.HTML;
+    protected CodeGenTypeEnum getCodeType() {
+        return CodeGenTypeEnum.MULTI_FILE;
     }
 
     @Override

@@ -21,19 +21,19 @@ class AiCodeGeneratorFacadeTest {
 
     @Test
     void generateAndSaveCode() {
-        File file = aiCodeGeneratorFacade.generateAndSaveCode("做个程序员鱼皮的工作记录小工具,20行内代码", CodeGenTypeEnum.HTML);
+        File file = aiCodeGeneratorFacade.generateAndSaveCode("做个程序员鱼皮的工作记录小工具,20行内代码", CodeGenTypeEnum.HTML, 1234L);
         Assertions.assertNotNull(file);
     }
 
     @Test
     void generateAndSaveMultiCode() {
-        File file = aiCodeGeneratorFacade.generateAndSaveCode("做个程序员cui的日记记录小工具,30行内代码", CodeGenTypeEnum.MULTI_FILE);
+        File file = aiCodeGeneratorFacade.generateAndSaveCode("做个程序员cui的日记记录小工具,30行内代码", CodeGenTypeEnum.MULTI_FILE, 1234L);
         Assertions.assertNotNull(file);
     }
 
     @Test
     void generateAndSaveCodeStream() {
-        Flux<String> codestream = aiCodeGeneratorFacade.generateAndSaveCodeStream("做个程序员cui的emo日记，不超过20行", CodeGenTypeEnum.HTML);
+        Flux<String> codestream = aiCodeGeneratorFacade.generateAndSaveCodeStream("做个程序员cui的emo日记，不超过20行", CodeGenTypeEnum.HTML, 1234L);
         // 阻塞等待所有数据收集完成
         List<String> result = codestream.collectList().block();
         // 验证结果
@@ -44,7 +44,7 @@ class AiCodeGeneratorFacadeTest {
 
     @Test
     void generateAndSaveCodeStream1() {
-        Flux<String> codestream = aiCodeGeneratorFacade.generateAndSaveCodeStream("做个程序员cui的enjoy日记，不超过20行", CodeGenTypeEnum.MULTI_FILE);
+        Flux<String> codestream = aiCodeGeneratorFacade.generateAndSaveCodeStream("做个程序员cui的enjoy日记，不超过20行", CodeGenTypeEnum.MULTI_FILE, 1234L);
         // 阻塞等待所有数据收集完成
         List<String> result = codestream.collectList().block();
         // 验证结果
@@ -56,14 +56,14 @@ class AiCodeGeneratorFacadeTest {
     @Test
     void testGenerateAndSaveCode() {
         File file = aiCodeGeneratorFacade.generateAndSaveCode("做个程序员cui的enjoy日记，不超过20行",
-                CodeGenTypeEnum.MULTI_FILE);
+                CodeGenTypeEnum.MULTI_FILE,1234L);
         assertNotNull(file);
     }
 
     @Test
     void testGenerateAndSaveCodeStream() {
         Flux<String> codeStream = aiCodeGeneratorFacade.generateAndSaveCodeStream("做个程序员cui的enjoy日记，不超过20行",
-                CodeGenTypeEnum.MULTI_FILE);
+                CodeGenTypeEnum.MULTI_FILE, 1234L);
         List<String> result = codeStream.collectList().block();
         assertNotNull(result);
     }

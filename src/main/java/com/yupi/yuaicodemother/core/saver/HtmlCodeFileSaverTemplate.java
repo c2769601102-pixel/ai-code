@@ -21,7 +21,7 @@ public class HtmlCodeFileSaverTemplate extends CodeFileSaverTemplate<HtmlCodeRes
     }
 
     @Override
-    protected CodeGenTypeEnum getCodeTpe() {
+    protected CodeGenTypeEnum getCodeType() {
         return CodeGenTypeEnum.HTML;
     }
 
